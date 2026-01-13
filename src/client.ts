@@ -133,10 +133,15 @@ export class HolodexApiClient {
    * We recommends using this if you have a fixed set of channel IDs to look up status for.
    *
    * @param channelIds comma separated Youtube Channel IDs
+   * @param includePlaceholder if true, includes placeholder videos in the response
    */
-  async getLiveVideosByChannelId(channelIds: string | string[]) {
+  async getLiveVideosByChannelId(
+    channelIds: string | string[],
+    includePlaceholder = false,
+  ) {
     const q = querystring({
       channels: Array.isArray(channelIds) ? channelIds.join(',') : channelIds,
+      includePlaceholder: includePlaceholder ? 'true' : undefined,
     });
     const { data } = await this.httpClient.get<VideoRaw[]>(`/users/live?${q}`);
     return data.map((video) => new Video(video));

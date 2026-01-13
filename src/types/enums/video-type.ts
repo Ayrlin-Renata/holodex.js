@@ -1,4 +1,5 @@
 export const enum VideoType {
   Stream = 'stream',
   Clip = 'clip',
+  Placeholder = 'placeholder',
 }

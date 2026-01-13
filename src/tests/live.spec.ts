@@ -23,6 +23,17 @@ describe('Lives', () => {
           videoType: expect.stringMatching('stream'),
         }),
       ));
+
+    it('should work with includePlaceholder', () =>
+      expect(
+        client.getLiveVideosByChannelId('UC-hM6YJuNYVAmUWxeIr9FeA', true),
+      ).resolves.toContainEqual(
+        expect.objectContaining({
+          channel: expect.objectContaining({
+            channelId: expect.stringMatching('UC-hM6YJuNYVAmUWxeIr9FeA'),
+          }),
+        }),
+      ));
   });
 
   describe('#getLiveVideos()', () => {

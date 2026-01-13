@@ -21,6 +21,11 @@ export interface VideosParam {
   include?: ExtraData[] | string;
 
   /**
+   * Include placeholder videos
+   */
+  includePlaceholder?: boolean;
+
+  /**
    * A comma separated list of language codes to filter channels/clips, official streams do not follow this parameter
    */
   lang?: string | string[];

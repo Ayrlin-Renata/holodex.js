@@ -7,5 +7,8 @@ module.exports = {
   },
   collectCoverageFrom: ['**/*.(t|j)s'],
   coverageDirectory: '../coverage',
+  moduleNameMapper: {
+    '^axios$': 'axios/dist/node/axios.cjs',
+  },
   testEnvironment: 'node',
 };
